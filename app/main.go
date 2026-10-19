@@ -7,16 +7,16 @@ import (
 )
 
 func main() {
-	
 
-reader := bufio.NewReader(os.Stdin)
-for { 
-	fmt.Print("$ ")
+	reader := bufio.NewReader(os.Stdin)
+	for {
+		fmt.Print("$ ")
 
-	command, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "Error reading input:", err)
-		os.Exit(1)
+		command, err := reader.ReadString('\n')
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "Error reading input:", err)
+			os.Exit(1)
+		}
+		fmt.Println(command[:len(command)-1] + ": command not found")
 	}
-	fmt.Println(command[:len(command)-1] + ": command not found")
- }
+}
